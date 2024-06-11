@@ -6,7 +6,7 @@ class Login:
     def __init__(self):
         self.master_root = CTk()
         self.master_root.title("INICIO DE SESIÓN")
-        self.master_root.geometry("400x300")
+        self.master_root.geometry("330x200")
 
         # Llamada al formulario_login
         self.formulario_login()
