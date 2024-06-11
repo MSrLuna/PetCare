@@ -1,6 +1,5 @@
 from tkinter import *
 from customtkinter import *
-from PIL import Image, ImageTk
 set_appearance_mode("dark")
 
 class Login:
@@ -30,10 +29,5 @@ class Login:
 
         CTkButton(self.master_root, text="Acceder", width=150, height=30).grid(row=3, column=0, padx=6, pady=6)
         CTkButton(self.master_root, text="Cancelar", width=150, height=30).grid(row=3, column=1, padx=6, pady=6)
-
-        # Leer imagen
-        jaja = Image.open("")
-        # Mostrar imagen
-        jaja.show()
 
 ventana = Login()
