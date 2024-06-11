@@ -1,12 +1,13 @@
 from tkinter import *
 from customtkinter import *
+from PIL import Image, ImageTk
 set_appearance_mode("dark")
 
 class Login:
     def __init__(self):
         self.master_root = CTk()
         self.master_root.title("INICIO DE SESIÓN")
-        self.master_root.geometry("330x200")
+        self.master_root.geometry("340x480")
 
         # Llamada al formulario_login
         self.formulario_login()
@@ -30,5 +31,9 @@ class Login:
         CTkButton(self.master_root, text="Acceder", width=150, height=30).grid(row=3, column=0, padx=6, pady=6)
         CTkButton(self.master_root, text="Cancelar", width=150, height=30).grid(row=3, column=1, padx=6, pady=6)
 
+        # Leer imagen
+        jaja = Image.open("")
+        # Mostrar imagen
+        jaja.show()
 
 ventana = Login()
