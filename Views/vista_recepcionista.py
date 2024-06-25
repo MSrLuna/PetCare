@@ -3,38 +3,51 @@ from botones.boton_ficha_recep import Mostrar_Ficha
 from botones.boton_hora import Mostrar_Hora
 # from src.utils.utilidad import DeleteFrame
 
-def Mostrar_Menu():
-    def DeleteFrame(ventanaMain):
-        contadorFrames = ventanaMain.winfo_children()
-        if len(contadorFrames) > 1:
-            contadorFrames[1].destroy()
+class MenuPrincipal:
+    def __init__(self):
+        self.ventanaMain = Tk()
+        self.ventanaMain.geometry("1024x768")
+        self.font_p = ("Segoe UI", 12)
 
-    ventanaMain = Tk()
-    ventanaMain.geometry("1024x768")
-    font_p = ("Segoe UI", 12)
+        self.frameMain = Frame(self.ventanaMain, width=200, height=768) 
+        self.frameMain.pack(fill="both", expand=False, side="left")
+        self.frameMain.pack_propagate(False)
 
-    frameMain = Frame(ventanaMain, width=200, height=768) 
-    frameMain.pack(fill="both", expand=False, side="left")
-    frameMain.pack_propagate(False)
+        self.btnFicha = Button(self.frameMain, text="Modulo de Fichas", command=self.mostrar_modulo_fichas)
+        self.btnFicha.pack(pady=10)
+        self.btnFicha.place(x=40, y=75)
+            
+        self.btnHora = Button(self.frameMain, text="Modulo de Horas", command=self.mostrar_modulo_horas)
+        self.btnHora.pack(pady=10)
+        self.btnHora.place(x=40, y=125)
 
-    btnFicha = Button(frameMain, text="Modulo de Fichas", command=lambda:Mostrar_Ficha(ventanaMain))
-    btnFicha.pack(pady=10)
-    btnFicha.place(x=40, y=75)
+        self.content_frame = Frame(self.ventanaMain)
+        self.content_frame.pack(side="right", fill="both", expand=True)
+
+        self.mostrar_bienvenida()
+
+        self.ventanaMain.mainloop()
+
+    def mostrar_bienvenida(self):
+        self.delete_frame(self.content_frame)
+
+        lbl_Entrada = Label(self.content_frame, text="LotusPet", font=self.font_p)
+        lbl_Entrada.pack(pady=15)
         
-    btnHora = Button(frameMain, text="Modulo de Horas", command=lambda:Mostrar_Hora(ventanaMain))
-    btnHora.pack(pady=10)
-    btnHora.place(x=40, y=125)
+        lbl_Entrada = Label(self.content_frame, text="Para acceder a las funciones utilice los botones laterales", font=self.font_p)
+        lbl_Entrada.pack()
 
-    def ContentMain():
-        DeleteFrame(ventanaMain)
+    def mostrar_modulo_fichas(self):
+        self.delete_frame(self.content_frame)
+        Mostrar_Ficha(self.ventanaMain)
 
-        ContentFrame = Frame(ventanaMain)
-        ContentFrame.pack(side="right", fill="both", expand=True)
+    def mostrar_modulo_horas(self):
+        self.delete_frame(self.content_frame)
+        Mostrar_Hora(self.ventanaMain)
 
-        lbl_Entrada = Label(ContentFrame, text="LotusPet", font=font_p).pack(pady=15)
-        lbl_Entrada = Label(ContentFrame, text="Para acceder a las funciones utilice los botones laterales", font=font_p).pack()
+    def delete_frame(self, frame):
+        for widget in frame.winfo_children():
+            widget.destroy()
 
-    ContentMain()
-    ventanaMain.mainloop()
-
-Mostrar_Menu()
+if __name__ == "__main__":
+    menu = MenuPrincipal()

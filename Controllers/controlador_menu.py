@@ -1,6 +1,10 @@
-from src.views import vista_mainmenu
+from Views.vista_mainmenu import MenuVentana
 
-#Para visualizar definimos funcion que se encarge de eso
-def Visualizar_Menu(user_rol):
-    #Llamamos a la funcion de mostrar desde el archivo en el que se encuentra
-    vista_mainmenu.Mostrar_Menu(user_rol)
+class MenuVisualizer:
+    def __init__(self, user_rol):
+        self.user_rol = user_rol
+
+    def visualizar_menu(self):
+        menu = MenuVentana(self.user_rol)  # Crear una instancia de MenuVentana
+
+# No es necesario modificar más aquí si no hay otros ajustes específicos.

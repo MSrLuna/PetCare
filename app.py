@@ -1,10 +1,11 @@
-from src.controllers.controlador_login import Iniciar_Sesion
-from src.controllers.controlador_menu import Visualizar_Menu
+from Controllers.controlador_login import SessionManager
+from Controllers.controlador_menu import MenuVisualizer
 
 def main():
-    #El if llama iniciar_sesion y toma los valores que este arroje y pregunta si es true
-    if Iniciar_Sesion():
-        Visualizar_Menu(user_rol="Recepcionista")
+    session_manager = SessionManager()
+    if session_manager.iniciar_sesion():
+        menu_visualizer = MenuVisualizer(user_rol="Recepcionista")
+        menu_visualizer.visualizar_menu()
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()

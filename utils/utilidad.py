@@ -1,4 +1,12 @@
-def DeleteFrame(ventanaMain):
-    contadorFrames = ventanaMain.winfo_children()
-    if len(contadorFrames) > 1:
-        contadorFrames[1].destroy()
+class FrameDeleter:
+    def __init__(self, ventana_main):
+        self.ventana_main = ventana_main
+
+    def delete_frame(self):
+        contador_frames = self.ventana_main.winfo_children()
+        if len(contador_frames) > 1:
+            contador_frames[1].destroy()
+
+# Ejemplo de uso:
+# deleter = FrameDeleter(ventana_main)
+# deleter.delete_frame()

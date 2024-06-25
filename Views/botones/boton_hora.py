@@ -1,26 +1,42 @@
 from tkinter import *
-def DeleteFrame(ventanaMain):
-        contadorFrames = ventanaMain.winfo_children()
-        if len(contadorFrames) > 1:
-            contadorFrames[1].destroy()
-            
-def Mostrar_Hora(ventanaMain):
-    DeleteFrame(ventanaMain)
-    frameHora = Frame(ventanaMain)
-    frameHora.pack(fill="both", expand=True)
 
-    btn_AgregarHora = Button(frameHora, text="Agregar Hora")
-    btn_AgregarHora.pack(padx=50)
-    btn_AgregarHora.place(x=100, y=20)
+class FrameDeleter:
+    def __init__(self, ventana_main):
+        self.ventana_main = ventana_main
 
-    btn_EditarHora = Button(frameHora, text="Editar Hora")
-    btn_EditarHora.pack(padx=50)
-    btn_EditarHora.place(x=275, y=20)
+    def delete_frame(self):
+        contador_frames = self.ventana_main.winfo_children()
+        if len(contador_frames) > 1:
+            contador_frames[1].destroy()
 
-    btn_VisualizarHora = Button(frameHora, text="Vizualizar Hora")
-    btn_VisualizarHora.pack(padx=50)
-    btn_VisualizarHora.place(x=450, y=20)
+class HoraViewer:
+    def __init__(self, ventana_main):
+        self.ventana_main = ventana_main
+        self.frame_deleter = FrameDeleter(ventana_main)
 
-    btn_BloquearHora = Button(frameHora, text="Cancelar Hora")
-    btn_BloquearHora.pack(padx=100)
-    btn_BloquearHora.place(x=650, y=20)
+    def mostrar_hora(self):
+        self.frame_deleter.delete_frame()
+        frame_hora = Frame(self.ventana_main)
+        frame_hora.pack(fill="both", expand=True)
+
+        btn_agregar_hora = Button(frame_hora, text="Agregar Hora")
+        btn_agregar_hora.pack(padx=50)
+        btn_agregar_hora.place(x=100, y=20)
+
+        btn_editar_hora = Button(frame_hora, text="Editar Hora")
+        btn_editar_hora.pack(padx=50)
+        btn_editar_hora.place(x=275, y=20)
+
+        btn_visualizar_hora = Button(frame_hora, text="Visualizar Hora")
+        btn_visualizar_hora.pack(padx=50)
+        btn_visualizar_hora.place(x=450, y=20)
+
+        btn_bloquear_hora = Button(frame_hora, text="Cancelar Hora")
+        btn_bloquear_hora.pack(padx=100)
+        btn_bloquear_hora.place(x=650, y=20)
+
+# Ejemplo de uso:
+# ventana_main = Tk()
+# hora_viewer = HoraViewer(ventana_main)
+# hora_viewer.mostrar_hora()
+# ventana_main.mainloop()
