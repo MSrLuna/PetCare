@@ -1,7 +1,7 @@
 from tkinter import *
-from botones.boton_ficha_vet import Mostrar_Ficha
+from .botones.boton_ficha_vet import FichaViewerV
 
-class MenuPrincipal:
+class MenuPrincipalV:
     def __init__(self):
         self.ventanaMain = Tk()
         self.ventanaMain.geometry("1024x768")
@@ -33,11 +33,12 @@ class MenuPrincipal:
 
     def mostrar_modulo_fichas(self):
         self.delete_frame(self.content_frame)
-        Mostrar_Ficha(self.ventanaMain)
+        ficha = FichaViewerV(self.ventanaMain)
+        ficha.mostrar_ficha()
 
     def delete_frame(self, frame):
         for widget in frame.winfo_children():
             widget.destroy()
 
 if __name__ == "__main__":
-    menu = MenuPrincipal()
+    menu = MenuPrincipalV()

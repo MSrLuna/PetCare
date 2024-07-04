@@ -19,7 +19,7 @@ class Login:
     def formulario_login(self):
         tk.Label(self.master_root, text="INICIO DE SESIÓN").grid(row=0, column=0, columnspan=2)
 
-        tk.Label(self.master_root, text="Usuario:").grid(row=1, column=0)
+        tk.Label(self.master_root, text="Rut:").grid(row=1, column=0)
         usuario_entry = Entry(self.master_root, textvariable=self.txt_usuario, width=30)
         usuario_entry.grid(row=1, column=1, padx=6, pady=6)
 
@@ -49,11 +49,11 @@ class Login:
     def get_credentials(self):
         return self.credentials.get('user'), self.credentials.get('password')
 
-# Ejemplo de uso:
-if __name__ == "__main__":
-    login = Login()
-    user, password = login.get_credentials()
-    if user and password:
-        print(f"Usuario: {user}, Contraseña: {password}")
-    else:
-        print("Inicio de sesión cancelado.")
+# # Ejemplo de uso:
+# if __name__ == "__main__":
+#     login = Login()
+#     user, password = login.get_credentials()
+#     if user and password:
+#         print(f"Usuario: {user}, Contraseña: {password}")
+#     else:
+#         print("Inicio de sesión cancelado.")

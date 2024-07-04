@@ -9,7 +9,7 @@ class FrameDeleter:
         if len(contador_frames) > 1:
             contador_frames[1].destroy()
 
-class HoraViewer:
+class HoraViewerR:
     def __init__(self, ventana_main):
         self.ventana_main = ventana_main
         self.frame_deleter = FrameDeleter(ventana_main)

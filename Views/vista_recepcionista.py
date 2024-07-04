@@ -1,9 +1,8 @@
 from tkinter import *
-from botones.boton_ficha_recep import Mostrar_Ficha
-from botones.boton_hora import Mostrar_Hora
-# from src.utils.utilidad import DeleteFrame
+from Views.botones.boton_ficha_recep import FichaViewerR
+from Views.botones.boton_hora import HoraViewerR
 
-class MenuPrincipal:
+class MenuPrincipalR:
     def __init__(self):
         self.ventanaMain = Tk()
         self.ventanaMain.geometry("1024x768")
@@ -39,15 +38,15 @@ class MenuPrincipal:
 
     def mostrar_modulo_fichas(self):
         self.delete_frame(self.content_frame)
-        Mostrar_Ficha(self.ventanaMain)
+        FichaViewerR.mostrar_ficha(self.ventanaMain)
 
     def mostrar_modulo_horas(self):
         self.delete_frame(self.content_frame)
-        Mostrar_Hora(self.ventanaMain)
+        HoraViewerR.mostrar_hora(self.ventanaMain)
 
     def delete_frame(self, frame):
         for widget in frame.winfo_children():
             widget.destroy()
 
 if __name__ == "__main__":
-    menu = MenuPrincipal()
+    menu = MenuPrincipalR()

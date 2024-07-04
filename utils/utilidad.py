@@ -6,7 +6,3 @@ class FrameDeleter:
         contador_frames = self.ventana_main.winfo_children()
         if len(contador_frames) > 1:
             contador_frames[1].destroy()
-
-# Ejemplo de uso:
-# deleter = FrameDeleter(ventana_main)
-# deleter.delete_frame()

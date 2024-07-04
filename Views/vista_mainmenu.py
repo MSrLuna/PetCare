@@ -11,16 +11,14 @@ class MenuVentana:
         self.ventana.mainloop()
 
     def mostrar_mensaje_bienvenida(self, user_rol):
-        messagebox.showinfo("Bienvenida", "Sistema sin rol")
-        
-        if user_rol == "Recepcionista":
-            self.ventana.title("Menu Recepcionista")
-            messagebox.showinfo("Bienvenida", "Bienvenido recepcionista {} al sistema".format(user_rol))
-        elif user_rol == "Veterinario":
-            self.ventana.title("Menu Veterinario")
-            messagebox.showinfo("Bienvenida", "Bienvenido veterinario {} al sistema".format(user_rol))
-
-# Ejemplo de uso:
-if __name__ == "__main__":
-    user_rol = "Recepcionista"  # Cambiar al rol deseado: "Recepcionista" o "Veterinario"
-    menu = MenuVentana(user_rol)
+        # if user_rol == 1:
+        #     self.ventana.title("Menu Recepcionista")
+        #     messagebox.showinfo("Bienvenida", "Bienvenido recepcionista al sistema")
+        # elif user_rol == 2:
+        #     self.ventana.title("Menu Veterinario")
+        #     messagebox.showinfo("Bienvenida", "Bienvenido veterinario al sistema")
+        # elif user_rol == 3:
+        #     self.ventana.title("Menu Administrador")
+        #     messagebox.showinfo("Bienvenida", "Bienvenido administrador al sistema")
+        # if:z
+        messagebox.showerror("Error de privilegios", "No se ha podido iniciar sesion")
