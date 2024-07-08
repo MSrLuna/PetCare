@@ -79,8 +79,19 @@ class Usuario:
             sql = 'SELECT * FROM Usuario WHERE RUT=%s AND Contraseña=%s'
             cursor = connection.Ejecutar_Query(sql, (rut, contraseña))
             datos = cursor.fetchone()
-            connection.desconectar()
-            return datos
+            if datos:
+                usuario = Usuario()
+                usuario.id = datos[0]
+                usuario.rut = datos[1]
+                usuario.nombre = datos[2]
+                usuario.apellido = datos[3]
+                usuario.rol_id = datos[4]
+                usuario.fecha_contrato = datos[5]
+                usuario.turno = datos[6]
+                usuario.contraseña = datos[7]
+                return usuario
+            else:
+                connection.desconectar()
         except:
             return []
     # PARA LUEGO PREGUNTAR EN EL MENU EL ROL DEL USUARIO QUE SE TRAJO 
